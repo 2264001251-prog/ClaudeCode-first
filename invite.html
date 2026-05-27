@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=yes">
+<meta property="og:title" content="昊宇的啵啵mua邀约">
+<meta property="og:description" content="左亦晗，你的专属啵啵mua邀约来啦！💋">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+<title>昊宇的啵啵mua邀约</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    background: #e8e2de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .card {
+    width: 420px;
+    background: linear-gradient(175deg, #FFF5F7 0%, #FFF0F5 15%, #F5FAFF 45%, #FFF5F7 75%, #FFF0F5 100%);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.05);
+    position: relative;
+  }
+
+  /* ── 背景装饰飘浮爱心 ── */
+  .floating-hearts {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .heart-float {
+    position: absolute;
+    opacity: 0.18;
+    animation: floatUp 8s ease-in-out infinite;
+  }
+  .heart-float:nth-child(1) { top: 70%; left: 8%; font-size: 28px; animation-delay: 0s; animation-duration: 7s; }
+  .heart-float:nth-child(2) { top: 75%; left: 18%; font-size: 20px; animation-delay: 1s; animation-duration: 8.5s; }
+  .heart-float:nth-child(3) { top: 80%; left: 80%; font-size: 24px; animation-delay: 0.5s; animation-duration: 6.5s; }
+  .heart-float:nth-child(4) { top: 72%; left: 70%; font-size: 32px; animation-delay: 2s; animation-duration: 9s; }
+  .heart-float:nth-child(5) { top: 78%; left: 40%; font-size: 18px; animation-delay: 1.5s; animation-duration: 7.5s; }
+  .heart-float:nth-child(6) { top: 68%; left: 55%; font-size: 26px; animation-delay: 3s; animation-duration: 8s; }
+  .heart-float:nth-child(7) { top: 85%; left: 25%; font-size: 22px; animation-delay: 0.8s; animation-duration: 6.8s; }
+  .heart-float:nth-child(8) { top: 73%; left: 88%; font-size: 16px; animation-delay: 2.5s; animation-duration: 7.2s; }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.18; }
+    50%  { transform: translateY(-60px) rotate(15deg) scale(1.15); opacity: 0.28; }
+    100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.18; }
+  }
+
+  /* ── 顶部渐变背景 ── */
+  .header-bg {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(160deg, #FFD1DC 0%, #FFC8D6 25%, #E0F7FF 60%, #C8EDFF 100%);
+    padding: 40px 32px 48px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .header-bg::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -40px; right: -50px;
+  }
+  .header-bg::after {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -20px; left: -30px;
+  }
+
+  /* 顶部小标签 */
+  .top-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(8px);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #C07080;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .top-tag .sparkle {
+    display: inline-block;
+    animation: sparkle 1.2s ease-in-out infinite;
+  }
+  .top-tag .sparkle:nth-child(1) { animation-delay: 0s; }
+  .top-tag .sparkle:nth-child(2) { animation-delay: 0.4s; }
+  .top-tag .sparkle:nth-child(3) { animation-delay: 0.8s; }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* 主标题 */
+  .main-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: #4A3030;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    position: relative;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.5);
+  }
+  .main-title .highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF7A90, #FF5270);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .main-title .mua {
+    display: inline-block;
+    font-size: 38px;
+    animation: kissBounce 0.8s ease-in-out infinite;
+  }
+  @keyframes kissBounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(-5deg); }
+    75% { transform: scale(1.2) rotate(5deg); }
+  }
+
+  /* ── 主角头像区 ── */
+  .couple-area {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: -24px;
+    padding: 0 32px;
+  }
+  .avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border: 3px solid white;
+    position: relative;
+  }
+  .avatar.blue {
+    background: linear-gradient(135deg, #E0F7FF, #C0E8FF);
+  }
+  .avatar.pink {
+    background: linear-gradient(135deg, #FFD1DC, #FFC0D0);
+  }
+  .avatar-label {
+    position: absolute;
+    bottom: -22px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6B4E4E;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  .plus-sign {
+    font-size: 24px;
+    color: #FF9EAF;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .heart-center {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #FF9EAF, #FF7A90);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(255,126,145,0.35);
+    animation: heartBeat 1s ease-in-out infinite;
+  }
+  @keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+  }
+
+  /* ── 告白文案区 ── */
+  .love-message {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px 32px 10px;
+  }
+  .love-line {
+    font-size: 17px;
+    color: #6B4E4E;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 2;
+  }
+  .love-line em {
+    font-style: normal;
+    color: #FF7A90;
+    font-weight: 700;
+  }
+  .love-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .love-divider .dot-line {
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, #FFD1DC);
+  }
+  .love-divider .dot-line.right {
+    background: linear-gradient(90deg, #FFD1DC, transparent);
+  }
+  .love-divider .icon-heart {
+    font-size: 16px;
+  }
+
+  /* ── 信息卡片 ── */
+  .info-card {
+    position: relative;
+    z-index: 1;
+    margin: 0 24px 16px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 20px 24px;
+    border: 1.5px solid rgba(255,209,220,0.35);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  }
+  .info-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    gap: 12px;
+    font-size: 15px;
+    color: #5A4040;
+  }
+  .info-icon {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .info-icon.blue-bg { background: #E0F7FF; }
+  .info-icon.pink-bg { background: #FFF0F3; }
+  .info-label {
+    font-weight: 600;
+    color: #4A3535;
+    min-width: 44px;
+  }
+  .info-value {
+    color: #6B4E4E;
+    font-weight: 400;
+  }
+  .info-value strong {
+    color: #FF7A90;
+    font-weight: 700;
+  }
+
+  /* ── 倒计时区 ── */
+  .countdown-box {
+    position: relative;
+    z-index: 1;
+    margin: 0 24px 16px;
+    background: linear-gradient(135deg, #FFF0F5, #FFD1DC, #F0F8FF);
+    border-radius: 20px;
+    padding: 18px 24px;
+    text-align: center;
+    border: 2px dashed #FFB8C8;
+  }
+  .countdown-title {
+    font-size: 13px;
+    color: #8B6068;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+  .countdown-dates {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+  .date-chip {
+    background: white;
+    padding: 8px 18px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #4A3535;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    letter-spacing: 1px;
+  }
+  .date-chip.primary {
+    background: #FF7A90;
+    color: white;
+  }
+
+  /* ── 答应按钮们 ── */
+  .answer-area {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 8px 24px 24px;
+  }
+  .answer-hint {
+    font-size: 13px;
+    color: #B89999;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-big {
+    padding: 14px 32px;
+    border-radius: 28px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-yes {
+    background: linear-gradient(135deg, #FF9EAF, #FF7A90);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255,126,145,0.35);
+    animation: gentlePulse 2s ease-in-out infinite;
+  }
+  @keyframes gentlePulse {
+    0%, 100% { box-shadow: 0 6px 20px rgba(255,126,145,0.35); }
+    50% { box-shadow: 0 8px 30px rgba(255,126,145,0.55); }
+  }
+  .btn-yes:hover { transform: translateY(-2px); }
+  .btn-maybe {
+    background: white;
+    color: #8B7070;
+    border: 2px solid #F0E0D8;
+  }
+  .btn-maybe:hover { border-color: #FFD1DC; }
+  .btn-beg {
+    background: #E0F7FF;
+    color: #5B8090;
+    border: none;
+    font-size: 14px;
+    padding: 10px 24px;
+    border-radius: 22px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+  .btn-beg:hover { background: #C8EDFF; }
+
+  /* ── 底部 ── */
+  .footer-note {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 32px 28px;
+    font-size: 12px;
+    color: #C8B0B0;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+
+  /* ── 弹窗 ── */
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-overlay.show { display: flex; }
+  .popup {
+    background: white;
+    border-radius: 28px;
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 340px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    animation: popIn 0.4s ease-out;
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .popup-emoji { font-size: 64px; }
+  .popup-title { font-size: 22px; font-weight: 700; color: #4A3535; margin: 12px 0 6px; }
+  .popup-text { font-size: 15px; color: #8B7070; line-height: 1.6; }
+  .popup-btn {
+    margin-top: 16px;
+    padding: 12px 32px;
+    border-radius: 24px;
+    background: #FF9EAF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+
+  /* ── 响应式 ── */
+  @media (max-width: 440px) {
+    .card { width: 100%; border-radius: 28px; }
+    .main-title { font-size: 26px; }
+    .main-title .mua { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- 飘浮爱心背景 -->
+  <div class="floating-hearts">
+    <span class="heart-float">💕</span>
+    <span class="heart-float">💗</span>
+    <span class="heart-float">💖</span>
+    <span class="heart-float">🩷</span>
+    <span class="heart-float">💝</span>
+    <span class="heart-float">💓</span>
+    <span class="heart-float">🫧</span>
+    <span class="heart-float">💞</span>
+  </div>
+
+  <!-- 顶部 -->
+  <div class="header-bg">
+    <div class="top-tag">
+      <span class="sparkle">✨</span> 私人专属邀约 <span class="sparkle">✨</span>
+    </div>
+    <div class="main-title">
+      昊宇的<br>
+      <span class="highlight">啵啵</span><span class="mua">mua</span><span class="highlight">邀约</span>
+    </div>
+  </div>
+
+  <!-- 双人头像 -->
+  <div class="couple-area">
+    <div class="avatar blue">
+      🦁
+      <div class="avatar-label">李昊宇</div>
+    </div>
+    <div class="heart-center">💘</div>
+    <div class="avatar pink">
+      🐰
+      <div class="avatar-label">左亦晗</div>
+    </div>
+  </div>
+
+  <!-- 告白文案 -->
+  <div class="love-message">
+    <div class="love-line">
+      致我最最最可爱的 <em>亦晗宝贝</em> ：
+    </div>
+    <div class="love-divider">
+      <span class="dot-line"></span>
+      <span class="icon-heart">💌</span>
+      <span class="dot-line right"></span>
+    </div>
+    <div class="love-line" style="font-size:15px; line-height:2.2;">
+      想你的第N天，实在忍不住了！<br>
+      特此颁发 <em>「官方啵啵许可证」</em> 一张<br>
+      持证人可在以下时间地点<br>
+      向李昊宇同学<em>无限量</em>索取啵啵mua 🫣<br>
+      —— 过期不候，速来报到 ——
+    </div>
+  </div>
+
+  <!-- 信息卡片 -->
+  <div class="info-card">
+    <div class="info-row">
+      <div class="info-icon pink-bg">👦</div>
+      <span class="info-label">邀请人</span>
+      <span class="info-value"><strong>李昊宇</strong>（你的专属啵啵供应商）</span>
+    </div>
+    <div class="info-row">
+      <div class="info-icon blue-bg">👧</div>
+      <span class="info-label">邀请对象</span>
+      <span class="info-value"><strong>左亦晗</strong>（宇宙唯一指定接收人）</span>
+    </div>
+    <div class="info-row">
+      <div class="info-icon pink-bg">📞</div>
+      <span class="info-label">接头暗号</span>
+      <span class="info-value">拨打电话 <a href="tel:15065580729" style="color:#FF7A90; font-weight:700; text-decoration:none;">15065580729</a> 即可找到我</span>
+    </div>
+    <div class="info-row">
+      <div class="info-icon blue-bg">📍</div>
+      <span class="info-label">秘密基地</span>
+      <span class="info-value">山东财经大学圣井校区<br><strong>图书馆1F 羽毛球场</strong></span>
+    </div>
+  </div>
+
+  <!-- 活动时间 -->
+  <div class="countdown-box">
+    <div class="countdown-title">⏳ 啵啵有效期</div>
+    <div class="countdown-dates">
+      <div class="date-chip primary">本周</div>
+      <div class="date-chip">下周</div>
+    </div>
+  </div>
+
+  <!-- 答应按钮 -->
+  <div class="answer-area">
+    <div class="answer-hint">—— 所以，你来不来嘛 👇 ——</div>
+    <div class="btn-row">
+      <button class="btn-big btn-yes" onclick="handleYes()">来！必须来！💋</button>
+      <button class="btn-big btn-maybe" onclick="handleMaybe()">考虑一下…🤔</button>
+    </div>
+    <button class="btn-beg" onclick="handleBeg()">🥺 求求你了（点击发送可怜光波）</button>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    本邀约最终解释权归李昊宇所有<br>
+    不接受任何形式的拒绝申请 🙅‍♂️
+  </div>
+</div>
+
+<!-- 弹窗 -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <div class="popup-emoji" id="popupEmoji">🥰</div>
+    <div class="popup-title" id="popupTitle"></div>
+    <div class="popup-text" id="popupText"></div>
+    <button class="popup-btn" onclick="closePopup()">好哒 ❤️</button>
+  </div>
+</div>
+
+<script>
+function showPopup(emoji, title, text) {
+  document.getElementById('popupEmoji').textContent = emoji;
+  document.getElementById('popupTitle').textContent = title;
+  document.getElementById('popupText').textContent = text;
+  document.getElementById('popup').classList.add('show');
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+}
+function handleYes() {
+  showPopup('😍', '啊啊啊啊太好了！！',
+    '就知道我的亦晗宝贝会答应！\n那说好了哦，我在羽毛球场等你，\n不见不散，啵啵mua～💋');
+}
+function handleMaybe() {
+  showPopup('🥺', '考虑一下就是说…',
+    '还有亿点点心动对不对！\n那我再加码一个抱抱+转圈圈，\n现在可以变成「来」了吗～🫣');
+}
+function handleBeg() {
+  showPopup('🫠', '可怜光波已发送！',
+    '滴——对方已收到你的可怜光波！\n左亦晗同学，李昊宇同学已经想你想得\n茶不思饭不想了，快来找他吧～🍰');
+}
+</script>
+
+</body>
+</html>
